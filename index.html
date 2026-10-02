@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enhance & Convert — Image Quality Enhancer</title>
-<meta name="description" content="Enhance, upscale, sharpen, and convert images directly in your browser.">
+<title>Atad — Image Quality Enhancer &amp; Converter</title>
+<meta name="description" content="Atad lets you enhance, upscale, sharpen, and convert images directly in your browser.">
 <meta name="theme-color" content="#090b12">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="application-name" content="Enhance & Convert">
+<meta name="application-name" content="Atad">
 <link rel="icon" type="image/svg+xml" href="./icon.svg">
 <link rel="manifest" href="./manifest.webmanifest">
 <style>
@@ -33,7 +33,8 @@ h1{font-size:clamp(44px,7.2vw,76px);line-height:.99;margin:20px 0 16px;letter-sp
 input[type=file]{display:none}
 .controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}.control{min-width:0;background:rgba(255,255,255,.027);border:1px solid rgba(191,199,255,.09);padding:14px;border-radius:13px;transition:border-color .2s,background .2s}.control:focus-within{border-color:rgba(167,139,250,.5);background:rgba(167,139,250,.045)}.control label{display:block;color:#c7c9d7;font-size:11px;font-weight:700;letter-spacing:.25px;margin-bottom:9px}.control select,.control input{width:100%;accent-color:#a78bfa}.control select{background:#111521;color:#f5f5fb;border:1px solid rgba(191,199,255,.12);border-radius:9px;padding:11px 12px;font:inherit;font-size:12px;outline:none}.control select:focus{border-color:#a78bfa}.control input[type=range]{margin:4px 0}
 .controls.converter{grid-template-columns:1fr}
-.mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}.mode-option{min-height:50px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.035);color:#c7c9d7;font:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:background .2s,border-color .2s,color .2s}.mode-option[aria-pressed="true"]{color:#fff;border-color:rgba(167,139,250,.55);background:linear-gradient(110deg,rgba(139,105,245,.24),rgba(103,232,249,.08));box-shadow:0 6px 22px rgba(112,86,220,.12)}[hidden]{display:none!important}
+.mode-switch{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}.mode-option{min-height:50px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.035);color:#c7c9d7;font:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:background .2s,border-color .2s,color .2s}.mode-option[aria-pressed="true"]{color:#fff;border-color:rgba(167,139,250,.55);background:linear-gradient(110deg,rgba(139,105,245,.24),rgba(103,232,249,.08));box-shadow:0 6px 22px rgba(112,86,220,.12)}[hidden]{display:none!important}
+.text-area{display:block;width:100%;min-height:260px;resize:vertical;background:#0b0e17;color:var(--text);border:1px solid rgba(191,199,255,.15);border-radius:12px;padding:15px;font:inherit;font-size:14px;line-height:1.65;outline:none}.text-area:focus{border-color:rgba(167,139,250,.65)}.text-tools{display:grid;gap:13px;margin-top:14px}.text-tools label{display:block;color:#c7c9d7;font-size:12px;font-weight:700;margin-bottom:8px}.text-tools .actions{margin-top:0}
 .actions{display:flex;gap:10px;margin-top:14px}.btn{min-height:44px;border:1px solid transparent;border-radius:11px;padding:12px 18px;font:inherit;font-size:12px;font-weight:800;letter-spacing:.1px;cursor:pointer;transition:transform .18s,filter .18s,border-color .18s}.btn:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.1)}.primary{color:#fff;background:linear-gradient(105deg,#8c6df5,#7358e6);box-shadow:0 7px 22px rgba(115,88,230,.2);flex:1}.primary:before{content:"✦";margin-right:8px}.secondary{color:#d1d3df;background:rgba(255,255,255,.045);border-color:rgba(191,199,255,.11)}.btn:disabled{opacity:.4;cursor:not-allowed}
 .help{color:#969caf;font-size:11px;line-height:1.65;margin:10px 3px 0}.help:empty{display:none}#notice:not(:empty){color:#d2c4ff}
 .preview{display:none;margin-top:23px;padding-top:20px;border-top:1px solid rgba(191,199,255,.1)}.preview.show{display:block}.previewHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}.previewHead strong{font-size:15px;letter-spacing:-.2px}.previewHead span{color:var(--muted);font-size:11px;text-align:right}.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.imagebox{background:#0b0e17;border:1px solid rgba(191,199,255,.1);border-radius:14px;overflow:hidden}.imagebox div{padding:10px 13px;color:#b7bbcc;font-size:10px;font-weight:800;letter-spacing:1px;border-bottom:1px solid rgba(191,199,255,.08)}.imagebox canvas{width:100%;height:340px;object-fit:contain;display:block;background:repeating-conic-gradient(#151a26 0 25%,#10141e 0 50%) 50%/18px 18px}
@@ -45,7 +46,7 @@ button:focus-visible,.drop:focus-within,select:focus-visible{outline:2px solid #
 </style>
 </head>
 <body>
-<nav><a class="logo" href="https://converter.com" aria-label="Enhance and Convert home">Enhance <span>&amp; Convert</span></a><div class="navtag">Private by design</div></nav>
+<nav><a class="logo" href="./" aria-label="Atad image tools home">Atad <span>Image Tools</span></a><div class="navtag">Private by design</div></nav>
 <main>
 <section class="hero">
 <div class="badge">IMAGE QUALITY ENHANCER</div>
@@ -56,6 +57,12 @@ button:focus-visible,.drop:focus-within,select:focus-visible{outline:2px solid #
 <div class="mode-switch" role="group" aria-label="Choose a tool">
 <button class="mode-option" id="enhancerMode" type="button" aria-pressed="true">Image Enhancer</button>
 <button class="mode-option" id="converterMode" type="button" aria-pressed="false">File Converter</button>
+<button class="mode-option" id="textMode" type="button" aria-pressed="false">Text Converter</button>
+</div>
+<div class="text-tools" id="textTools" hidden>
+<div><label for="textInput">Text to convert</label><textarea class="text-area" id="textInput" placeholder="Type or paste your text here…" maxlength="50000"></textarea><p class="help">Create a PNG image, PDF, or editable Word document from your text. Everything is processed in your browser.</p></div>
+<div class="control"><label for="textFormat">Output format</label><select id="textFormat"><option value="png">Image (PNG)</option><option value="pdf">PDF</option><option value="docx">Word (DOCX)</option></select></div>
+<div class="actions"><button class="btn primary" id="createText" type="button">Create &amp; Download</button><button class="btn secondary" id="clearText" type="button">Clear Text</button></div>
 </div>
 <label class="drop" id="drop">
 <input id="file" type="file" accept="image/*,.pdf,.heic,.heif,.tif,.tiff,.psd,.raw,.dng,.cr2,.cr3,.nef,.nrw,.arw,.orf,.rw2,.raf,.pef,.srw" multiple>
@@ -64,7 +71,7 @@ button:focus-visible,.drop:focus-within,select:focus-visible{outline:2px solid #
 <div class="controls" id="controls">
 <div class="control" id="scaleControl"><label>Upscale</label><select id="scale"><option value="2">2× Resolution</option><option value="4">4× Resolution</option><option value="8">8× Resolution</option></select></div>
 <div class="control" id="sharpControl"><label>Sharpen</label><input id="sharp" type="range" min="0" max="100" value="45"><div id="sharpVal" style="font-size:12px;color:#9ba5b7;margin-top:5px">45%</div></div>
-<div class="control"><label>Output format</label><select id="format"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option><option value="image/gif">GIF</option><option value="image/tiff">TIFF</option><option value="image/vnd.adobe.photoshop">PSD (flattened)</option><option value="application/pdf">PDF</option><option value="image/heic">HEIF / HEIC (if browser supports it)</option></select></div>
+<div class="control"><label>Output format</label><select id="format"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option><option value="image/gif">GIF</option><option value="image/tiff">TIFF</option><option value="image/vnd.adobe.photoshop">PSD (flattened)</option><option value="application/pdf">PDF</option><option value="application/vnd.openxmlformats-officedocument.wordprocessingml.document">Word (DOCX)</option><option value="image/heic">HEIF / HEIC (if browser supports it)</option></select></div>
 </div>
 <p class="help">PDF input pages are included in the output; image files are downloaded separately in a ZIP when needed. RAW files are input-only and browser-dependent. Animated GIFs are converted as a still image.</p>
 <p class="help" id="notice" role="status" aria-live="polite"></p>
@@ -80,7 +87,7 @@ button:focus-visible,.drop:focus-within,select:focus-visible{outline:2px solid #
 </div>
 </section>
 </main>
-<footer>Enhance &amp; Convert • Browser-based image tools. Files stay on your device.</footer>
+<footer>Atad • Browser-based image tools. Files stay on your device.</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/utif@3.1.0/UTIF.min.js"></script>
@@ -88,23 +95,33 @@ button:focus-visible,.drop:focus-within,select:focus-visible{outline:2px solid #
 <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
 <script>
 const file=document.getElementById('file'),drop=document.getElementById('drop'),enhance=document.getElementById('enhance'),reset=document.getElementById('reset');
 const before=document.getElementById('before'),after=document.getElementById('after'),scale=document.getElementById('scale'),sharp=document.getElementById('sharp'),sharpVal=document.getElementById('sharpVal');
 const preview=document.getElementById('preview'),status=document.getElementById('status'),notice=document.getElementById('notice');
-const enhancerMode=document.getElementById('enhancerMode'),converterMode=document.getElementById('converterMode');
+const enhancerMode=document.getElementById('enhancerMode'),converterMode=document.getElementById('converterMode'),textMode=document.getElementById('textMode');
 const scaleControl=document.getElementById('scaleControl'),sharpControl=document.getElementById('sharpControl');
 const previewTitle=document.getElementById('previewTitle'),compare=document.getElementById('compare'),stats=document.getElementById('stats'),download=document.getElementById('download'),controls=document.getElementById('controls');
+const textTools=document.getElementById('textTools'),textInput=document.getElementById('textInput'),textFormat=document.getElementById('textFormat');
 let pages=[],mode='enhancer';
 function setMode(nextMode){
  mode=nextMode;
  const isEnhancer=mode==='enhancer';
+ const isConverter=mode==='converter',isText=mode==='text';
  enhancerMode.setAttribute('aria-pressed',String(isEnhancer));
- converterMode.setAttribute('aria-pressed',String(!isEnhancer));
+ converterMode.setAttribute('aria-pressed',String(isConverter));
+ textMode.setAttribute('aria-pressed',String(isText));
+ textTools.hidden=!isText;
+ drop.hidden=isText;
+ document.querySelector('#controls').hidden=isText;
+ document.querySelector('#controls').nextElementSibling.hidden=isText;
  scaleControl.hidden=sharpControl.hidden=!isEnhancer;
  controls.classList.toggle('converter',!isEnhancer);
  enhance.hidden=!isEnhancer;
+ enhance.parentElement.hidden=isText;
  compare.hidden=stats.hidden=!isEnhancer;
+ preview.hidden=isText;
  previewTitle.textContent=isEnhancer?'Preview':'Ready to convert';
  download.textContent=isEnhancer?'Enhance & Download':'Convert & Download';
  if(pages.length){
@@ -114,6 +131,7 @@ function setMode(nextMode){
 }
 enhancerMode.onclick=()=>setMode('enhancer');
 converterMode.onclick=()=>setMode('converter');
+textMode.onclick=()=>setMode('text');
 sharp.oninput=()=>sharpVal.textContent=sharp.value+'%';
 ['dragenter','dragover'].forEach(e=>drop.addEventListener(e,x=>{x.preventDefault();drop.classList.add('drag')}));
 ['dragleave','drop'].forEach(e=>drop.addEventListener(e,x=>{x.preventDefault();drop.classList.remove('drag')}));
@@ -168,7 +186,7 @@ async function loadFiles(files){
  try{
   notice.textContent='Reading file(s)…';pages=[];
   for(const [fileIndex,f] of files.entries()){
-   const name=f.name.replace(/\.[^.]+$/,'')||'pixellift',decoded=await decodeFile(f);
+   const name=f.name.replace(/\.[^.]+$/,'')||'atad',decoded=await decodeFile(f);
    decoded.forEach((canvas,index)=>pages.push({canvas,name,page:index+1,pageCount:decoded.length,fileIndex,multipleFiles:files.length>1}));
   }
   if(!pages.length)throw Error('No pages or images were found.');
@@ -237,6 +255,87 @@ async function encodeCanvas(canvas,mime){
  if(mime==='image/heic'&&blob.type!=='image/heic')throw Error('This browser does not support HEIF/HEIC output. Choose PNG, JPG, WebP, GIF, TIFF, PSD, or PDF instead.');
  return blob;
 }
+async function encodeWordDocument(canvases){
+ const {Document,ImageRun,Paragraph,Packer,AlignmentType}=window.docx||{};
+ if(!Document||!ImageRun||!Paragraph||!Packer)throw Error('Word document support could not load. Check your internet connection and retry.');
+ const children=[];
+ for(const [index,canvas] of canvases.entries()){
+  const imageBlob=await canvasBlob(canvas,'image/png'),data=new Uint8Array(await imageBlob.arrayBuffer());
+  const scale=Math.min(1,720/canvas.width,960/canvas.height);
+  children.push(new Paragraph({
+   alignment:AlignmentType?.CENTER,
+   pageBreakBefore:index>0,
+   children:[new ImageRun({data,transformation:{width:Math.max(1,Math.round(canvas.width*scale)),height:Math.max(1,Math.round(canvas.height*scale))}})]
+  }));
+ }
+ const document=new Document({sections:[{
+  properties:{page:{margin:{top:720,right:720,bottom:720,left:720}}},
+  children
+ }]});
+ return Packer.toBlob(document);
+}
+function wrapTextLines(text,context,maxWidth){
+ const lines=[];
+ for(const paragraph of text.replace(/\r\n?/g,'\n').split('\n')){
+  if(!paragraph){lines.push('');continue}
+  let line='';
+  for(const word of paragraph.split(/\s+/)){
+   const candidate=line?`${line} ${word}`:word;
+   if(context.measureText(candidate).width<=maxWidth){line=candidate;continue}
+   if(line)lines.push(line);
+   line='';
+   for(const character of word){
+    if(context.measureText(line+character).width>maxWidth&&line){lines.push(line);line=''}
+    line+=character;
+   }
+  }
+  lines.push(line);
+ }
+ return lines;
+}
+function createTextPageCanvas(lines){
+ const canvas=document.createElement('canvas'),padding=80,lineHeight=48,width=1200;
+ canvas.width=width;canvas.height=padding*2+lines.length*lineHeight;
+ const context=canvas.getContext('2d');
+ context.fillStyle='#fff';context.fillRect(0,0,canvas.width,canvas.height);
+ context.fillStyle='#171521';context.font='32px Arial, sans-serif';context.textBaseline='top';
+ lines.forEach((line,index)=>context.fillText(line, padding,padding+index*lineHeight));
+ return canvas;
+}
+document.getElementById('createText').onclick=async()=>{
+ const text=textInput.value;
+ if(!text.trim()){notice.textContent='Enter some text to convert.';textInput.focus();return}
+ const button=document.getElementById('createText'),format=textFormat.value;
+ button.disabled=true;notice.textContent='Creating your document…';
+ try{
+  const measureContext=document.createElement('canvas').getContext('2d');
+  measureContext.font='32px Arial, sans-serif';
+  const lines=wrapTextLines(text,measureContext,1040);
+  if(format==='png'){
+   if(lines.length>300)throw Error('This text is too long for one image. Choose PDF or Word, or shorten the text.');
+   downloadBlob(await canvasBlob(createTextPageCanvas(lines),'image/png'),'atad-text.png');
+  }else if(format==='pdf'){
+   if(!window.jspdf?.jsPDF)throw Error('PDF support could not load. Check your internet connection and retry.');
+   const {jsPDF}=window.jspdf,pageLines=30,pages=[];
+   for(let i=0;i<lines.length;i+=pageLines)pages.push(createTextPageCanvas(lines.slice(i,i+pageLines)));
+   const first=pages[0],pdf=new jsPDF({orientation:'portrait',unit:'px',format:[first.width,first.height]});
+   pages.forEach((canvas,index)=>{
+    if(index)pdf.addPage([canvas.width,canvas.height],'portrait');
+    pdf.addImage(canvas.toDataURL('image/png'),'PNG',0,0,canvas.width,canvas.height);
+   });
+   downloadBlob(pdf.output('blob'),'atad-text.pdf');
+  }else{
+   const {Document,Paragraph,Packer,TextRun}=window.docx||{};
+   if(!Document||!Paragraph||!Packer||!TextRun)throw Error('Word document support could not load. Check your internet connection and retry.');
+   const paragraphs=text.replace(/\r\n?/g,'\n').split('\n').map(line=>new Paragraph({children:[new TextRun(line||' ')]}));
+   const document=new Document({sections:[{properties:{},children:paragraphs}]});
+   downloadBlob(await Packer.toBlob(document),'atad-text.docx');
+  }
+  notice.textContent='Text file created successfully.';
+ }catch(error){notice.textContent=error.message||'Could not create the text file.'}
+ finally{button.disabled=false}
+};
+document.getElementById('clearText').onclick=()=>{textInput.value='';notice.textContent='';textInput.focus()};
 document.getElementById('download').onclick=async()=>{
  if(!pages.length)return;
  const button=document.getElementById('download'),mime=document.getElementById('format').value;
@@ -244,7 +343,10 @@ document.getElementById('download').onclick=async()=>{
  button.disabled=true;notice.textContent='Converting…';
  try{
   const canvases=pages.map(page=>mode==='enhancer'?enhanceCanvas(page.canvas):page.canvas);
-  if(mime==='application/pdf'){
+  if(mime==='application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+   downloadBlob(await encodeWordDocument(canvases),`${pages[0].name}-converted.docx`);
+  }
+  else if(mime==='application/pdf'){
    const {jsPDF}=window.jspdf||{};if(!jsPDF)throw Error('PDF encoder could not load.');
    const first=canvases[0],pdf=new jsPDF({orientation:first.width>first.height?'landscape':'portrait',unit:'px',format:[first.width,first.height]});
    canvases.forEach((canvas,index)=>{
@@ -270,7 +372,7 @@ document.getElementById('download').onclick=async()=>{
  }catch(error){notice.textContent=error.message||'Conversion failed.'}
  finally{button.disabled=false}
 };
-reset.onclick=()=>{pages=[];file.value='';enhance.disabled=true;preview.classList.remove('show');before.width=after.width=0;status.textContent='';notice.textContent=''};
+reset.onclick=()=>{pages=[];file.value='';textInput.value='';enhance.disabled=true;preview.classList.remove('show');before.width=after.width=0;status.textContent='';notice.textContent=''};
 setMode('enhancer');
 </script>
 <script>

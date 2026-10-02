@@ -1,4 +1,4 @@
-const CACHE_NAME = 'enhance-convert-v1';
+const CACHE_NAME = 'atad-v2';
 const ASSETS = ['./', './index.html', './icon.svg', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {

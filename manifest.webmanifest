@@ -1,7 +1,7 @@
 {
-  "name": "Enhance & Convert",
-  "short_name": "EnhanceConvert",
-  "description": "Enhance, upscale, sharpen, and convert images directly in the browser.",
+  "name": "Atad",
+  "short_name": "Atad",
+  "description": "Enhance, upscale, sharpen, and convert images directly in your browser with Atad.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#090b12",
