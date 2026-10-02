@@ -1,0 +1,17 @@
+{
+  "name": "Enhance & Convert",
+  "short_name": "EnhanceConvert",
+  "description": "Enhance, upscale, sharpen, and convert images directly in the browser.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#090b12",
+  "theme_color": "#090b12",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
